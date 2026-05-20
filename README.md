@@ -1,1 +1,0 @@
-# Laboratorio-Algoritmos---Castro-Rico-Luciano

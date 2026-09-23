@@ -14,7 +14,7 @@ mensaje si algo falla.
 5. Opcional: Integra los datos obtenidos con alguna funcionalidad de tu proyecto,
 como un carrito de compras o una lista de productos favoritos.*/
 
-const API_URL = "https://fakestoreapi.com/products/category/electronics";
+let API_URL = "https://fakestoreapi.com/products/category/electronics";
 
 document.addEventListener("DOMContentLoaded", () => {
   actualizarContadorFavoritos();
@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function obtenerProductos() {
-  const contenedor = document.getElementById("product-container");
-  const loading = document.getElementById("loading");
+  let contenedor = document.getElementById("product-container");
+  let loading = document.getElementById("loading");
 
   fetch(API_URL)
     .then((response) => {
@@ -77,8 +77,8 @@ function agregarFavorito(idProducto) {
 }
 
 function actualizarContadorFavoritos() {
-  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-  const contador = document.getElementById("cant-favoritos");
+  let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  let contador = document.getElementById("cant-favoritos");
 
   if (contador) {
     contador.textContent = favoritos.length;

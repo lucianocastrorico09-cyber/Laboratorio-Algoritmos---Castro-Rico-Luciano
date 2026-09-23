@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.areat {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.boton {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  margin-right: 5px;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.boton:hover {
+  background-color: ff3f31;
+}
+
+#contenedor-nota {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+  max-width: 400px;
+}

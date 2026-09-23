@@ -13,13 +13,13 @@ de manera que si recarga la página, los productos sigan allí.
 5. Mostrá la cantidad de productos que hay en el carrito en todo momento,
 actualizándose cada vez que se añada un nuevo producto.*/
 
-const API_URL = "https://fakestoreapi.com/products/category/electronics";
+let API_URL = "https://fakestoreapi.com/products/category/electronics";
 
 document.addEventListener("DOMContentLoaded", () => {
   obtenerProductosCarrito();
   cargarCarrito();
 
-  const btnVaciar = document.getElementById("vaciar-carrito");
+  let btnVaciar = document.getElementById("vaciar-carrito");
   if (btnVaciar) {
     btnVaciar.addEventListener("click", () => {
       localStorage.removeItem("carrito");
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function obtenerProductosCarrito() {
-  const contenedor = document.getElementById("productos-container");
+  let contenedor = document.getElementById("productos-container");
 
   fetch(API_URL)
     .then((res) => {
@@ -51,13 +51,13 @@ function obtenerProductosCarrito() {
 }
 
 function mostrarProductos(productos) {
-  const contenedor = document.getElementById("productos-container");
+  let contenedor = document.getElementById("productos-container");
   if (!contenedor) return;
 
   contenedor.innerHTML = "";
 
   productos.forEach((producto) => {
-    const card = document.createElement("div");
+    let card = document.createElement("div");
     card.classList.add("card");
     card.innerHTML = `
       <img src="${producto.image}" alt="${producto.title}">
@@ -74,20 +74,20 @@ function mostrarProductos(productos) {
     contenedor.appendChild(card);
   });
 
-  const botones = document.querySelectorAll(".btn-agregar");
+  let botones = document.querySelectorAll(".btn-agregar");
   botones.forEach((boton) => {
     boton.addEventListener("click", agregarProducto);
   });
 }
 
 function agregarProducto(e) {
-  const producto = {
+  let producto = {
     id: e.target.getAttribute("data-id"),
     nombre: e.target.getAttribute("data-nombre"),
     precio: e.target.getAttribute("data-precio"),
   };
 
-  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   carrito.push(producto);
   localStorage.setItem("carrito", JSON.stringify(carrito));
 
@@ -95,9 +95,9 @@ function agregarProducto(e) {
 }
 
 function cargarCarrito() {
-  const listaCarrito = document.getElementById("lista-carrito");
-  const totalProductos = document.getElementById("total-productos");
-  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let listaCarrito = document.getElementById("lista-carrito");
+  let totalProductos = document.getElementById("total-productos");
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
   if (totalProductos) {
     totalProductos.textContent = carrito.length;
@@ -106,7 +106,7 @@ function cargarCarrito() {
   if (listaCarrito) {
     listaCarrito.innerHTML = "";
     carrito.forEach((producto) => {
-      const li = document.createElement("li");
+      let li = document.createElement("li");
       li.textContent = `${producto.nombre} - $${producto.precio}`;
       listaCarrito.appendChild(li);
     });
